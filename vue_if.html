@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>index</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./lib/Vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+   <input type="button" value="toggle" @click="toggle">     
+   <h1 v-if="isshow">v-if 控制</h1>
+   <h1 v-show="isshow">v-show 控制</h1>
+   </div>
+
+  
+</body>
+<script>
+    //新建一个vue 实例
+    var vm = new Vue({
+        el: "#app",
+        //模型层 数据
+        data: {
+           isshow:true
+        },
+        //所有页面 要使用的方法
+        methods: {
+            toggle: function(){
+                this.isshow = !this.isshow;
+            }
+        }
+
+
+    })
+
+</script>
+
+</html>

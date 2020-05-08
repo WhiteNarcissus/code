@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>index</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./lib/Vue.js"></script>
+</head>
+
+<body>
+    <!-- 键盘监听 -->
+    <div id="app">
+         <input type="text" @keyup.enter="modify">
+         <button type="button" @click="modify"></button>
+       
+   </div>
+
+  
+</body>
+<script>
+    //新建一个vue 实例
+    var vm = new Vue({
+        el: "#app",
+        //模型层 数据
+        data: {
+            msg: "test",
+            change:"00000"
+        },
+        //所有页面 要使用的方法
+        methods: {
+            modify: function(){
+                alert("23333")
+            }
+        }
+
+
+    })
+
+</script>
+
+</html>

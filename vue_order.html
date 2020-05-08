@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>index</title>
+    <meta charset="UTF-8">
+    <style>
+        /* 属性选择器 */
+        [cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-cloak>
+            {{msg}}
+        </div>
+        <div v-cloak>
+            {{msg.substring(2)}}
+        </div>
+        <div v-cloak>
+                {{msg+'l l l l l '}}
+        </div>
+        <div v-cloak>
+            {{ok?'YES':'NO'}}
+        </div>
+        <div v-cloak>
+                {{msg.split("").reverse().join('--')}}
+        </div>
+        <div style="background: orange">
+            前
+            {{data}}
+            后
+        </div>
+        <!--  将数据 当成网页替换标签内容 -->
+        <div style="background: orange" v-html="data">
+            前
+
+            后
+        </div>
+
+        <!-- 将数据以普通文本 替换整个 标签内容 -->
+        <div style="background: orange" v-text="data">
+            前
+
+            后
+        </div>
+
+        <!-- v-bind 绑定属性 可以简写直接 ：  -->
+        <input type="text" v-bind:value="value" />
+        <input type="text" :value="value2" />
+
+
+        <!-- v-on 绑定事件 -->
+        <input type="text" v-on:input="myInput" />
+        <input type="text" @input="myInput2" />
+        <button type="button" @click="show">点</button>
+        <button type="button" onclick="alert('sssss')">点</button>
+
+        <br> <br> <br> <br>
+
+        <!-- 插值表达式 -->
+
+
+    </div>
+    <!-- 把它放 在这里 然后浏览器 network 改成slow 3g，可以发现 差值表达式的的闪烁问题
+可以使用v-cloak
+-->
+    <script type="text/javascript" src="./lib/Vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            //模型层 数据
+            data: {
+                msg: "test",
+                change: "00000",
+                data: "<p style='color:red'> 这是一个p </p>",
+                value: "啦 啦 啦 啦 ",
+                value2: "我是卖报的小邋遢 真呀真邋遢  ",
+                ok:true
+
+            },
+            //所有页面 要使用的方法
+            methods: {
+                modify: function () {
+                    this.msg = "after test"
+                },
+                myInput: function () {
+                    console.log("x x x x x")
+                },
+                myInput2: function () {
+                    console.log("22222 ")
+                },
+                show() {
+                    console.log("memememm ")
+                }
+
+            }
+
+
+
+
+        });
+
+
+    </script>
+</body>
+
+</html>

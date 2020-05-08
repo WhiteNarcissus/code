@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>index</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./lib/Vue.js"></script>
+
+
+    <style>
+        .parent{
+         width: 500px;
+         height: 400px;
+         background-color:  rgb(243, 7, 7);
+        
+         
+
+        }
+        .sub{
+        width: 300px;
+         height: 200px;
+         background-color:  rgb(141, 163, 43);
+
+        }
+        .child{
+            width: 200px;
+         height: 100px;
+         background-color:  rgb(22, 21, 21);
+        }
+    
+    </style>
+</head>
+<!-- 事件冒泡 当点击内事件是 他会触发 外面所有事件  -->
+<body>
+    <div id="app">
+        <a href="www.baidu.com">dian</a>
+        <div class="parent"  @click="clickParent">
+                <div class="sub" @click="clickSub">
+                        <!--  .stop 阻止事件冒泡 -->
+                        <div class="child" @click.stop="clickChild">
+
+                            </div>
+
+                    </div>
+        </div>
+  
+   </div>
+
+  
+</body>
+<script>
+    //新建一个vue 实例
+    var vm = new Vue({
+        el: "#app",
+        //模型层 数据
+        data: {
+           
+        },
+        //所有页面 要使用的方法
+        methods: {
+            clickParent(){
+            console.log("clickParen")
+
+            },
+            clickSub(){
+            console.log("clickSub")
+
+            },
+            clickChild(){
+            console.log("clickChild")
+
+            }
+        }
+
+    })
+
+</script>
+
+</html>

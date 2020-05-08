@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>index</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./lib/Vue.js"></script>
+</head>
+
+<body>
+    <!--  全局过滤器    -->
+    <div id="app">
+    <p >{{msg | msgReplace("edg") | partf}}</p>
+   </div>
+
+      <!--   局部过滤器 -->
+      <div id="app2">
+            <p >{{msg | msgReplace("edg") }}</p>
+           </div>
+          
+
+</body>
+<script>
+    //新建一个vue 实例  
+     Vue.filter("msgReplace",function(value , param ){
+      return value = value.replace(/TOP/g,param)
+     }
+     )
+     
+
+     //使用过滤器 来对 日期进行格式化
+
+
+    var vm = new Vue({
+        el: "#app",
+        //模型层 数据
+        data: {
+            msg: "TOP 111111  TOP 33333",
+            change:"00000"
+        },
+        //所有页面 要使用的方法
+        methods: {
+        
+        },
+        filters:{
+           partf:function(value){
+
+            return value+"23333333333333333"
+           }
+
+        }
+
+
+    })
+
+    
+    var vm2 = new Vue({
+        el: "#app2",
+        //模型层 数据
+        data: {
+            msg: "TOP 111111  TOP 33333 TOP 4444444",
+            change:"00000"
+        },
+        //所有页面 要使用的方法
+        methods: {
+        
+        }
+
+
+    })
+
+</script>
+
+</html>

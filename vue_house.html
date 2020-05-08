@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>index</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./lib/Vue.js"></script>
+</head>
+<!-- 跑 马 灯 效 果  -->
+<body>
+    <div id="app">
+    
+        <button type="button" @click="rang">浪</button>
+        <button type="button" @click="norang">别浪</button>
+
+        <h4>
+        {{msg}}
+        </h4>
+   </div>
+
+  
+</body>
+<script>
+    //新建一个vue 实例
+    var vm = new Vue({
+        el: "#app",
+        //模型层 数据
+        data: {
+            msg: "别浪 ```````````",
+            timerInterval:null
+        },
+        //所有页面 要使用的方法
+        methods: {
+          rang:function(){
+            // 这样 实际上是不行的 因为 this.msg 不知道上指向 定时器fuction 还是 vm 对象   
+            //   this.timerInterval = setInterval(function(){
+            //     var start = this.msg.substring(0,1)
+            //   var end = this.msg.substring(1)
+            //   this.msg=end+start
+            //   },500)
+
+
+            //this  就是当前的vm 实例  在方法中要使用模型层中的属性 和方法的时候 必须要加上 this
+            //   console.log(this);
+
+            // 如果不加这个的话 每点一下 多一个定时器
+            // 所以这个加个限制
+            if( this.timerInterval){
+                return 
+            }
+                this.timerInterval = setInterval(()=>{
+                 var start = this.msg.substring(0,1)
+              var end = this.msg.substring(1)
+              this.msg=end+start
+              },500)
+
+            }
+
+           
+          
+         ,
+          norang:function(){
+              clearInterval(this.timerInterval)
+              this.timerInterval = null
+          }
+        
+        }
+
+
+    })
+
+</script>
+
+</html>

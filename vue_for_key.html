@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>index</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./lib/Vue.js"></script>
+</head>
+<!-- vue 的循环 遍历 -->
+<body>
+    <div id="app">
+        <label>id<input type="text" id=" " name="" v-model="id" > </label>
+        <label>name<input type="text" id=" " name="" v-model="name" > </label>
+        <input type="button" value="add" @click="add">
+        <!-- key 的存在 是为了保留控件的状态 ，因为vue使用的dom是 就地更新 使用key是保留属性 -->
+        <p v-for="(item,index) in list2" :key="item.id">
+             <input type="checkbox" id=" " name=""  >  {{item.name}}-----{{index}}
+        </p>
+   </div>
+
+  
+</body>
+<script>
+    //新建一个vue 实例
+    var vm = new Vue({
+        el: "#app",
+        //模型层 数据
+        data: {
+            // 普通数组
+           list1:[1,3,5],
+           list2:[{id:1,name:"zhangsan"},{id:2,name:"lisi"}],
+           id:"",
+           name:""
+        },
+        //所有页面 要使用的方法
+        methods: {
+           add:function(){
+             this.list2.unshift({id:this.id,name:this.name})
+           }
+        }
+
+
+    })
+
+</script>
+
+</html>
