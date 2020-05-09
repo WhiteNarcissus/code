@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>index</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./lib/Vue.js"></script>
+    <script type="text/javascript" src="./lib/vue-resource.min.js"></script>
+    <script type="text/javascript" src="./lib/app.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>vue 的监听器</h1>
+    <input  type="text" v-model="fisrt"   @keyup="modify">
+    <input  type="text" v-model="second"  @keyup="modify">
+    <input  type="text" v-model="change" >
+
+    <p>-----------------------</p>
+    <input  type="text" v-model="fisrtA"   >
+    <input  type="text" v-model="secondA"  >
+    <input  type="text" v-model="changeA" >
+
+    <p>-----------------------</p>
+    <input  type="text" v-model="fisrtB"   >
+    <input  type="text" v-model="secondB"  >
+    <input  type="text" v-model="changeB" >
+   </div>
+
+  
+</body>
+<script>
+    //新建一个vue 实例
+    var vm = new Vue({
+        el: "#app",
+        //模型层 数据
+        data: {
+            fisrt:"",
+            second:"",
+            change:"",
+            fisrtA:"",
+            secondA:"",
+            changeA:"",
+            fisrtB:"",
+            secondB:""
+          
+          
+        },
+        //所有页面 要使用的方法
+        methods: {
+            modify: function(){
+                this.change = this.fisrt + this.second
+            }
+        },
+        watch:{
+           fisrtA:function(newVal ,oldVal){
+               console.log(newVal+":"+oldVal)
+           }
+        },
+        computed: {
+             changeB: function(){
+                   console.log("aaa")
+                   return this.fisrtB+"22"+this.secondB
+             }
+
+
+        }
+
+
+    })
+
+</script>
+
+</html>

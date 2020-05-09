@@ -27,13 +27,15 @@
 
 <body>
         <div id="app">
+                   <!-- 循环嵌套 路由 -->
                 <h1>Hello App!</h1>
                 <p>
                   <!-- use router-link component for navigation. -->
                   <!-- specify the link by passing the `to` prop. -->
                   <!-- `<router-link>` will be rendered as an `<a>` tag by default -->
-                  <router-link to="/login?user=001">登入</router-link>
-                  <router-link to="/register/tom">注册</router-link>
+                  <router-link to="/user/tom">主页</router-link>
+                  <router-link to="/user/tom/profile">个人简历</router-link>
+                  <router-link to="/user/tom/post">个人经历</router-link>
                 </p>
                 <!-- route outlet -->
                 <!-- component matched by the route will render here -->
@@ -54,16 +56,35 @@
 
 // 1. Define route components.
 // These can be imported from other files
-var login = {
-     template: '<div>login{{$route.query.user}}</div>' 
+var user = {
+     template: '<div>用户名:  {{$route.params.id}} <router-view></router-view></div>' 
     }
-var register = {
-     template: '<div>register{{$route.params.user}}</div>'
+var userHome = {
+     template: '<div>主页</div>' 
+    }
+
+var userProfile = {
+     template: '<div>用户个人简介</div>'
      }
+
+var userPost = {
+     template: '<div>用户经历</div>'
+     }
+  
 var router = new VueRouter({
     routes: [
-         { path: '/login', component: login },
-        { path: '/register/:user', component: register }
+            //初始化
+            {path:"/",redirect:"/user/tom"},
+          // 子路由
+         { path: '/user/:id', component: user ,
+            children: [
+            {path:"" ,component:userHome },
+            {path:"profile" ,component:userProfile },
+            {path:"post" ,component:userPost }
+            ]
+         
+          },
+      
        ]
 })
 
