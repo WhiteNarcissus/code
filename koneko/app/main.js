@@ -3,6 +3,9 @@ document.querySelector("#app").appendChild(greeter());
 
 import Vue from "vue/dist/vue.js"
 
+import topicComp from "./src/components/Topic_Comp.vue"
+
+
 var vm = new Vue({
     el: "#app",
     //模型层 数据
@@ -15,6 +18,9 @@ var vm = new Vue({
         modify: function(){
             this.msg = "after test"
         }
+    },
+    render(createElements){
+       return createElements(topicComp)
     }
 
 
