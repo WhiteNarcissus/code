@@ -1,21 +1,200 @@
 <template>
   <div>
-  <h1 v-model="msg">{{msg}} </h1>
-  <input type="button" value="modify" @click="modify"> 
+     <nav class="navbar navbar-default navbar-fixed navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-header">
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">猫圈</a>
+                    </li>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">小猫</a></li>
+                    <li><a href="#">主子用品</a></li>
+                    <li><a href="#">消息<span class="badge" style="background-color: red">6</span></a></li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">搜索</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">说说</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心 
+      <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+          
+        </div>
+       
+    </nav>
+
+    
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8">
+                <div>
+                    <div class="row">
+                         <!-- ###########################左边 -->
+                        <div class="col-xs-8">
+                            <div>
+                                <div class="alert alert-success" role="alert"  style="text-align: center;"> 7条最新动态
+                                </div>
+                            </div>
+                            <span class="glyphicon glyphicon glyphicon-th-list">
+                              最新动态
+                           </span>
+                            <span class="glyphicon glyphicon glyphicon-cog pull-right">
+                              设置
+                           </span>
+                            <div>
+                                <hr>
+                                <div>
+                                    <div class="pull-left">
+                                        <img src="imgs/ii.jpg" class="img" />
+                                    </div>
+                                    <dir class=" row pull-left col-xs-11" style="margin-left: 10px;">
+                                        <div class="row col-md-11">来自话题: 绘画、艺术</div>
+                                        <div class="col-md-12">
+                                            <h2 class="row titles"><strong>为什么我们要去美术馆看画</strong></h2>
+                                            <div class="row"><a class="author-link" data-hovercard="p$t$qian-pin-ju" target="_blank" href="#">钱品聚</a>,<span title="希望养恶鬼，热情喂狂风" class="bio">希望养恶鬼，热情喂狂风</span>
+                                            </div>
+                                            <div class="row col-md-17" style="margin-top: 10px;">
+                                                <div class="row col-md-6">
+                                                    <img src="imgs/jj.png" class="img-rounded" >
+                                                </div>
+                                                <span class="fonts">我来讲一个我和某有钱有事业有地位有名气的某大v的故事吧（顺带实名反对最高票 @菠菜 前段时间，大概一群人一起吃饭（表明是集体活动），中间有一个知乎某大v，大家都是第一次见面。我是很简单单纯想着和别人做个朋友啥的，毕竟之前也没多聊过什么。我也是…....<a href="#" class="toggle-expand">  显示全部</a></span>
+                                            </div>
+                                            <div class="row">
+                                                <a><span class="glyphicon glyphicon-plus"></span>  关注问题</a>
+                                                <a><span class="glyphicon glyphicon-comment"></span>  66条评论</a> • <a>893个回答</a>
+                                                <hr />
+                                            </div>
+                                        </div>    
+                                    </dir>
+                                </div>
+                            </div>
+                         </div>
+                        <!-- ###########################右边 -->
+                         <div class="col-xs-2">
+                                                        <img  src="F:\git\code\koneko\app\src\img\hh.png" preview="1" class="img-rounded">
+                                                        <!--  ##############################第一部分 -->
+                                                        <div class="col-md-8 fonts4">
+                                                            <a href="#" class="glyphicon glyphicon-bookmark list-group-item fonts5"> 我的收藏<span class="badge" style="background-color: red">34</span>
+                                                            </a>
+                                                            <a href="#" class="glyphicon glyphicon-list-alt list-group-item fonts5"> 我关注的问题
+                                                            </a>
+                                                            <a href="#" class="glyphicon glyphicon-file list-group-item fonts5"> 邀请我回答的问题
+                                                            </a>
+                                                            <hr>
+                                                        </div>
+                                                        <!--  ##############################第二部分 -->
+                                                        <div class="col-md-8 fonts4">
+                                                            <a href="#" class="glyphicon glyphicon-th list-group-item fonts5"> 公共编辑动态
+                                                            </a>
+                                                            <a href="#" class="glyphicon glyphicon-home list-group-item fonts5"> 社区服务中心
+                                                            </a>
+                                                            <a href="#" class="glyphicon glyphicon-book list-group-item  fonts5"> 版权服务中心
+                                                            </a>
+                                                            <hr>
+                                                        </div>
+                                                        <!--  ##############################第三部分 -->
+                                                        <div class="col-md-8 fonts4">
+                                                            <h3 class="fonts1">知乎专栏</h3>
+                                                            <a href="#" class="glyphicon glyphicon-list-alt list-group-item" style="border: 0;width:270px;"> 专栏・发现</a>
+                                                            <hr>
+                                                        </div>
+                                                        <!--  ##############################第三部分 -->
+                                                        <div class="col-md-8" style="margin-top: 20px;width:270px;">
+                                                            <h3 class="fonts1">
+                                                              <span>
+                                                              知乎 Live ⚡️
+                                                              </span>
+                                                              <span>
+                                                              <a href="#" class="SidebarListNav-sideLink Link--light pull-right">查看全部 »</a>
+                                                              </span>
+                                                            </h3>
+                                                            <a href="#" class="list-group-item fonts5">
+                                                                <img src="imgs/uu.jpg" class="img2" /> 带你围观联合国摩洛哥气候大会
+                                                            </a>
+                                                            <a href="#" class="list-group-item fonts5">
+                                                                <img src="imgs/yy.jpg" class="img2" /> 邮轮环球 86 天是怎样的体验？
+                                                            </a>
+                                                            <a href="#" class="list-group-item fonts5">
+                                                                <img src="tt.jpg" class="img2" /> 养狗大百科
+                                                            </a>
+                                                            <hr>
+                                                        </div>
+                                                        <hr>
+                                                        <!--  ##############################第四部分 -->
+                                                        <div class="col-md-8 fonts4">
+                                                            <h3 class="fonts1">
+                                                              <span>
+                                                              知乎书店
+                                                              </span>
+                                                              <span>
+                                                              <a href="#" class="SidebarListNav-sideLink Link--light pull-right">查看全部 »</a>
+                                                              </span>
+                                                          </h3>
+                                                            <a href="#" class="list-group-item fonts5">
+                                                                <img src="imgs/ww.png" class="img2" /> 怪诞心理学
+                                                            </a>
+                                                            <a href="#" class="list-group-item fonts5">
+                                                                <img src="imgs/rr.png" class="img2" /> 在西伯利亚荒原中
+                                                            </a>
+                                                            <a href="#" class="list-group-item fonts5">
+                                                                <img src="imgs/ee.png" class="img2" /> 汽车是怎么造出来的
+                                                            </a>
+                                                            <hr>
+                                                        </div>
+                                                        <hr>
+                                                        <!--  ##############################第四部分 -->
+                                                        <div class="col-md-8" style="width:270px;">
+                                                            <a href="#" class="list-group-item fonts5">
+                                                                <img src="imgs/zz.jpg" class="img2" />下载app
+                                                            </a>
+                                                            <hr>
+                                                        </div>
+                                                        <hr>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        
+        </div>    
+
   </div>
 </template>
 <script>
 export default {
-data(){
-return {
-    msg:"单文件组件应用   app"
-    };
-},
- methods: {
-            modify: function(){
-                this.msg = "after test app"
-            }
+    data(){
+        return {
+         imgurl:require("./src/img/hh.png")
         }
+       
+    }
+
 }
 </script>
-<style></style>
+<style>
+
+</style>
