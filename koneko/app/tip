@@ -1,0 +1,8 @@
+npm i vue-preview-img --save
+npm install --save-dev style-loader
+npm install  --save-dev  file-loader
+npm install   --save-dev  url-loader
+npm install babel-loader --save
+
+npm uni babel-core babel-loader babel-plugin-transform-runtime -D
+npm i babel-loader @babel/core @babel/runtime @babel/preset-env @babel/plugin-proposal-class-properties @babel/plugin-transform-runtime -D
